@@ -5,6 +5,10 @@ import Greet from './components/Greet'
 import Welcome from './components/Welcome'
 import Hello from './components/Hello'
 import Message from './components/Message'
+import Counter from './components/Counter'
+import FunctionClick from './components/FunctionClick'
+import ClassClick from './components/ClassClick'
+import EventBinding from './components/EventBinding'
 
 function App() {
   return (
@@ -16,8 +20,15 @@ function App() {
           {/*<Greet />
           <Welcome />*/}
         </p>
-        <Message />
-        {/*<Hello/>
+          <EventBinding />
+        {/*
+                  <Greet name="Kevin"  heroName="Wonder Woman"/>
+        <Counter />
+        <Welcome name="Aldo" heroName="Superman"/>
+        <FunctionClick />
+        <ClassClick />
+          <Hello/>
+          <Message />
         <Greet name="Bruce" heroName="Batman">
           <p>This is children props</p>
         </Greet>
