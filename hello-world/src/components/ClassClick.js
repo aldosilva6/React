@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+//Event Handler in Class React
 class ClassClick extends Component {
     clickHandler(){
         console.log('Clicked on the button')

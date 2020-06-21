@@ -1,27 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-import Greet from './components/Greet'
-import Welcome from './components/Welcome'
-import Hello from './components/Hello'
-import Message from './components/Message'
-import Counter from './components/Counter'
-import FunctionClick from './components/FunctionClick'
-import ClassClick from './components/ClassClick'
-import EventBinding from './components/EventBinding'
+import ComponentC from './components/ComponentC';
+import { UserProvider } from './components/UserContext';
 
-function App() {
-  return (
+class App extends Component {
+  render() {
+    return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello World!
+          <UserProvider value="Aldo Change">
+            <ComponentC />
+          </UserProvider>
+       
           {/*<Greet />
           <Welcome />*/}
-        </p>
-          <EventBinding />
         {/*
+           <CounterTwo>
+          {(count, incrementCount) => (
+            <ClickCounterTwo count={count} incrementCount={incrementCount} />
+          )}
+        </CounterTwo> 
+
+        <CounterTwo> 
+          {(count, incrementCount) => (
+            <HoverCounterTwo count={count} incrementCount={incrementCount} />
+          )}
+        </CounterTwo>
+         <ClickCounterTwo />
+        <HoverCounterTwo />
+        <User render={(isLoggedIn) => isLoggedIn ? 'Aldo Function' : 'Guest'} />
+          <ClickCounter name="Aldo"/>
+        <HoverCounter />
+          <ErrorBoundary>
+          <Hero heroName="Batman" />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Hero heroName="Superman"/>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Hero heroName="Joker"/>
+        </ErrorBoundary>
+          <PortalDemo />
+          <ForwardingRefParentInput />
+          <FocusInput />
+           <RefsDemo />
+          <ParentComp />
+          <Table />
+          <FragmentDemo />
+           <LifecycleA />
+          <Form/>
+          <h1 className='error'>Error</h1>
+        <h1 className={styles.success} >Success</h1>
+          <Inline />
+          <Stylesheet primary={true}/>
+          <NameList />
+          <UserGreeting />
+          <ParentComponent />
+          <EventBinding />
                   <Greet name="Kevin"  heroName="Wonder Woman"/>
         <Counter />
         <Welcome name="Aldo" heroName="Superman"/>
@@ -39,17 +73,9 @@ function App() {
         <Welcome name="Bruce" heroName="Batman"/>
         <Welcome name="Aldo" heroName="Superman"/>
         <Welcome name="Kevin"  heroName="Wonder Woman"/>*/}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
-  );
+    )
+  }
 }
 
 export default App;
