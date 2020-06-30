@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import HookCounter from './components/HookCounter';
+import DataFeching from './components/DataFeching';
 
 function App() {
   return (
@@ -9,9 +9,10 @@ function App() {
      {/*<ClassCounterTwo />*/}
       {/*<ClassCounter />*/}
      {/*<HookCounterTwo />*/}
-     {/*<HookCounterThree />*/}
-      <HookCounter />
-     
+     {/*<HookCounterThree />
+      <MouseContainer />
+    */}
+      <DataFeching />     
     </div>
   );
 }

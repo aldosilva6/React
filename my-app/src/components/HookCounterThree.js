@@ -4,6 +4,10 @@ import React, {useState} from 'react'
 function HookCounterThree() {
     const [name, setName] = useState({firstName: '', lastName: ''})
 
+    //setState function from Class will merge the state
+    //When using hooks the setFunction(setName in this case) will not merge the state, 
+    //so is necessary to do manually using the spread operator...field
+
     return (
         <div>
             <form>

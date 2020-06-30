@@ -6,6 +6,10 @@ function HookCounterTwo() {
 
     const incrementFive = () => {
         for(let i = 0; i < 5; i++){
+            //
+            //setCount(count + 1)
+
+            //A function that acsucept the old value - Always use a function that accept the old value
             setCount(prevCount => prevCount + 1)
         }
     }
