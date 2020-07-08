@@ -3,24 +3,33 @@ import axios from 'axios'
 
 function DataFeching() {
 
-    const [posts, setPosts] = useState([])
+    const [post, setPost] = useState({})
+    const [id, setId] = useState(1)
+    const [idFormButtonClick, setIdFromButtonClick] = useState(1)
 
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {
+        axios.get(`https://jsonplaceholder.typicode.com/posts/${idFormButtonClick}`).then(res => {
             console.log(res)
-            setPosts(res.data)
+            setPost(res.data)
         }).catch(err => {
             console.log(err)
         })
-    }, [])
+    }, [idFormButtonClick])
+
+    const handleClick = () => {
+        setIdFromButtonClick(id)
+    }
 
     return (
         <div>
-            <ul>
+            <input type="text" value={id} onChange={e => setId(e.target.value)} />
+            <button type="button" onClick={handleClick}>Fetch Post</button>
+            <div>{post.title}</div>
+            {/*<ul>
                 {
                     posts.map(post => (<li key={post.id}>{post.title}</li>))
                 }
-            </ul>
+            </ul>*/}
         </div>
     )
 }

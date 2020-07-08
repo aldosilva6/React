@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
-import DataFeching from './components/DataFeching';
+import ComponentC from './components/ComponentC';
+
+export const UserContext = React.createContext()
+export const ChannelContext = React.createContext()
 
 function App() {
   return (
@@ -12,7 +15,11 @@ function App() {
      {/*<HookCounterThree />
       <MouseContainer />
     */}
-      <DataFeching />     
+    <ChannelContext.Provider value={'Aldo'}>
+        <UserContext.Provider value={'Vishwas'}>
+          <ComponentC />
+        </UserContext.Provider>     
+    </ChannelContext.Provider>
     </div>
   );
 }
