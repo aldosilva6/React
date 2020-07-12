@@ -1,10 +1,16 @@
-import React from 'react'
-import {UserContext, ChannelContext} from '../App'
+import React, { useContext } from "react";
+import { UserContext, ChannelContext } from "../App";
 
 function ComponentF() {
-    return (
-        <div>
-            <UserContext.Consumer>
+  const user = useContext(UserContext);
+  const channel = useContext(ChannelContext);
+
+  return (
+    <div>
+      {user} - {channel}
+      {/* 
+      WITHOUT HOOKS
+      <UserContext.Consumer>
                 {
                     user => {
                         return (
@@ -18,9 +24,9 @@ function ComponentF() {
                         )
                     }
                 }
-            </UserContext.Consumer>
-        </div>
-    )
+            </UserContext.Consumer> */}
+    </div>
+  );
 }
 
-export default ComponentF
+export default ComponentF;
