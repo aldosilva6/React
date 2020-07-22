@@ -1,37 +1,41 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function DataFeching() {
+  const [post, setPost] = useState({});
+  const [id, setId] = useState(1);
+  const [idFormButtonClick, setIdFromButtonClick] = useState(1);
 
-    const [post, setPost] = useState({})
-    const [id, setId] = useState(1)
-    const [idFormButtonClick, setIdFromButtonClick] = useState(1)
+  useEffect(() => {
+    axios
+      .get(`https://jsonplaceholder.typicode.com/posts/${idFormButtonClick}`)
+      .then((res) => {
+        console.log(res);
+        setPost(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [idFormButtonClick]);
 
-    useEffect(() => {
-        axios.get(`https://jsonplaceholder.typicode.com/posts/${idFormButtonClick}`).then(res => {
-            console.log(res)
-            setPost(res.data)
-        }).catch(err => {
-            console.log(err)
-        })
-    }, [idFormButtonClick])
+  const handleClick = () => {
+    setIdFromButtonClick(id);
+  };
 
-    const handleClick = () => {
-        setIdFromButtonClick(id)
-    }
-
-    return (
-        <div>
-            <input type="text" value={id} onChange={e => setId(e.target.value)} />
-            <button type="button" onClick={handleClick}>Fetch Post</button>
-            <div>{post.title}</div>
-            {/*<ul>
+  return (
+    <div>
+      <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
+      <button type="button" onClick={handleClick}>
+        Fetch Post
+      </button>
+      <div>{post.title}</div>
+      {/*<ul>
                 {
                     posts.map(post => (<li key={post.id}>{post.title}</li>))
                 }
             </ul>*/}
-        </div>
-    )
+    </div>
+  );
 }
 
-export default DataFeching
+export default DataFeching;

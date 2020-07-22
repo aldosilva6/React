@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 
 const initialState = {
   firstCounter: 0,
-  secondCounter: 10
+  secondCounter: 10,
 };
 
 //Using state as object can keep track of two different counters
@@ -23,6 +23,7 @@ const reducer = (state, action) => {
   }
 };
 
+//Used with global state to keep track of multiple actions
 function HookCounterTwoReducer() {
   const [count, dispatch] = useReducer(reducer, initialState);
 
@@ -46,10 +47,10 @@ function HookCounterTwoReducer() {
       <div>
         <button onClick={() => dispatch({ type: "increment2", value: 1 })}>
           Increment Counter 2
-      </button>
+        </button>
         <button onClick={() => dispatch({ type: "decrement2", value: 1 })}>
           Decrement Counter 2
-      </button>
+        </button>
       </div>
       <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
     </div>
