@@ -11,6 +11,8 @@ function ParentComponent() {
     setAge(age + 1);
   }, [age]);
 
+  //useCallBack is a hook tha will return a memoized version of the calback funcion that only changes
+  //if one of the dependencies has changed
   const incrementSalary = useCallback(() => {
     setSalary(salary + 1000);
   }, [salary]);
